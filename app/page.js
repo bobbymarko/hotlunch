@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
 
 import FoodRating from '../components/rating'
-const Webcam = dynamic(() => import('../components/Webcam').then(mod => mod.Webcam), {
+const Webcam = dynamic(() => import('../components/webcam').then(mod => mod.Webcam), {
   ssr: false
 })
 
