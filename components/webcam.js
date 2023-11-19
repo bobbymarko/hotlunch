@@ -5,33 +5,19 @@ export const Webcam = ({onBarcodeDetected}) => {
     const videoRef = useRef(null)
 
     useEffect(() => {
-/*
-        navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {  
-          const video = videoRef.current
-          video.srcObject = stream
-          video.play()
-        })
-        .catch(err => {
-          console.error(err)
-        })
-*/
 
         if (videoRef.current) {
           Quagga.init({
               inputStream: {
                   name: 'Live',
                   type: 'LiveStream',
-                  target: videoRef.current
+                  target: videoRef.current,
+                  constraints: {
+                    focusMode: 'continuous'
+                  }
               },
               decoder: {
-                  readers: ['code_39_reader'],
-                  debug: {
-                      drawBoundingBox: true,
-                      showFrequency: true,
-                      drawScanline: true,
-                      showPattern: true
-                  }
+                  readers: ['code_39_reader']
               }
           }, err => {
               if (err) {
