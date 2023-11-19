@@ -1,10 +1,21 @@
 import { useEffect, useRef } from 'react'
-import Quagga from 'quagga'
+import Quagga from '@ericblade/quagga2';
 
 export const Webcam = ({onBarcodeDetected}) => {
     const videoRef = useRef(null)
 
     useEffect(() => {
+/*
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {  
+          const video = videoRef.current
+          video.srcObject = stream
+          video.play()
+        })
+        .catch(err => {
+          console.error(err)
+        })
+*/
 
         if (videoRef.current) {
           Quagga.init({
@@ -24,7 +35,7 @@ export const Webcam = ({onBarcodeDetected}) => {
               }
           }, err => {
               if (err) {
-                  console.error(err)
+                  console.error('error', err)
                   return
               }
   
@@ -45,8 +56,8 @@ export const Webcam = ({onBarcodeDetected}) => {
     return (
         <div  className="flex flex-col justify-center items-center h-screen space-y-5">
             
-            <video ref={videoRef} width="640" height="480" autoPlay></video>
-            <p>Please scan your lunch tag.</p>
+            <div ref={videoRef}></div>
+            <p>Please scan your lunch tag</p>
         </div>
     )
 }
