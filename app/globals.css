@@ -31,3 +31,19 @@ canvas.drawing, canvas.drawingBuffer {
     left: 0;
     top: 0;
 }
+
+#webcam video{
+  transform: rotateZ(90deg);
+  width: 100vh;
+  height: 100vw;
+}
+#webcam-instructions {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+  left: 0;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}

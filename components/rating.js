@@ -36,7 +36,7 @@ const FoodRating = ({ratingDetected, barcodeData}) => {
 
       <div className="flex flex-col justify-center items-center h-screen space-y-5">
         <h2 className="text-3xl">How was your lunch?</h2>
-        <div className="flex">
+        <div className="flex space-x-4">
           <RatingButton rating="😋" onRate={() => handleRating('happy')} />
           <RatingButton rating="😐" onRate={() => handleRating('meh')} />
           <RatingButton rating="😞" onRate={() => handleRating('sad')} />

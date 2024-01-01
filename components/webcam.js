@@ -11,10 +11,7 @@ export const Webcam = ({onBarcodeDetected}) => {
               inputStream: {
                   name: 'Live',
                   type: 'LiveStream',
-                  target: videoRef.current,
-                  constraints: {
-                    focusMode: 'continuous'
-                  }
+                  target: videoRef.current
               },
               decoder: {
                   readers: ['code_39_reader']
@@ -40,10 +37,9 @@ export const Webcam = ({onBarcodeDetected}) => {
     }, [onBarcodeDetected])
 
     return (
-        <div  className="flex flex-col justify-center items-center h-screen space-y-5">
-            
-            <div ref={videoRef}></div>
-            <p>Please scan your lunch tag</p>
+        <div>
+            <div id="webcam" ref={videoRef}></div>
+            <p id="webcam-instructions">Please scan your lunch tag</p>
         </div>
     )
 }
