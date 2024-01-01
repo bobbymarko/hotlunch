@@ -16,6 +16,10 @@
   }
 }
 
+html,body {
+  overflow: hidden;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -33,9 +37,17 @@ canvas.drawing, canvas.drawingBuffer {
 }
 
 #webcam video{
-  transform: rotateZ(90deg);
-  width: 100vh;
-  height: 100vw;
+  position: fixed; /* Position it fixed on the page */
+  right: 0;
+  bottom: 0;
+  min-width: 100%; /* Minimum width of 100% to cover screen */
+  min-height: 100%; /* Minimum height of 100% to cover screen */
+  width: auto; /* Adjust the width automatically */
+  height: auto; /* Adjust the height automatically */
+  z-index: -100; /* Place it behind everything else on the page */
+  transform: rotate(90deg) scaleX(-1); /* Rotate the video 90 degrees */
+  transform-origin: center; /* Set the point around which a rotation happens */
+  object-fit: cover; /* Resize the video to cover the area, maintaining aspect ratio */
 }
 #webcam-instructions {
   position: absolute;
