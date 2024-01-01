@@ -45,7 +45,7 @@ canvas.drawing, canvas.drawingBuffer {
   width: auto; /* Adjust the width automatically */
   height: auto; /* Adjust the height automatically */
   z-index: -100; /* Place it behind everything else on the page */
-  /*transform: rotateZ(90deg) rotateY(180deg) rotateX(-180deg);*/ /* Rotate the video 90 degrees */
+  transform: rotateZ(90deg) /*rotateY(180deg) rotateX(-180deg)*/; /* Rotate the video 90 degrees */
   transform-origin: center; /* Set the point around which a rotation happens */
   object-fit: cover; /* Resize the video to cover the area, maintaining aspect ratio */
 }
